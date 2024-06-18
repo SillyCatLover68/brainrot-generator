@@ -4,19 +4,17 @@ nouns = [
     "skibidi toilet",
     "ohio",
     "rizzler",
-    "alpha",
     "Livy Dunne",
     "Baby Gronk",
     "Kai Cenat",
     "Adin Ross",
-    "beta",
     "fanum",
     "sigma",
 ]
 
 adjectives = [
     "sigma",
-    "skibidi",    
+    "skibidi",
     "alpha",
     "beta"
 ]
@@ -26,40 +24,47 @@ verbs = [
     "fanum tax",
     "rizz",
     "mew",
-    "edge"
+    "edge",
+    "goon"
 ]
 
 num_times = int(input("Brainrot level?: "))
 
+
 def capitalize_sentence(sentence):
     return sentence[0].upper() + sentence[1:]
 
+
 def generate_sentence():
-    adjective1 = random.choice(adjectives)
-    adjective2 = random.choice(adjectives)
-    noun1 = random.choice(nouns)
-    noun2 = random.choice(nouns)
-    verb = random.choice(verbs)
-    verb2 = random.choice(verbs)
+    unique_nouns = random.sample(nouns, 2)
+    unique_adjectives = random.sample(adjectives, 2)
+    unique_verbs = random.sample(verbs, 2)
     punctuation = random.choice([".", "!", "?"])
 
     rand_num = random.random()
     if rand_num < 0.2:
-        sentence = f"The {adjective1} {noun1} {verb}s the {adjective2} {noun2}{punctuation}"
+        sentence = f"The {unique_adjectives[0]} {unique_nouns[0]} {unique_verbs[0]}s the {unique_adjectives[1]} {unique_nouns[1]}{punctuation}"
+        
     elif rand_num < 0.3:
-        sentence = f"The {adjective1} {noun1} truly has the most aura{punctuation}"
+        sentence = f"The {unique_adjectives[0]} {unique_nouns[0]} truly has the most aura{punctuation}"
+        
     elif rand_num < 0.4:
-        sentence = f"{noun1} {verb}s the {adjective2} {noun2} while {verb2}ing{punctuation}"
+        sentence = f"{unique_nouns[0]} {unique_verbs[0]}s the {unique_adjectives[1]} {unique_nouns[1]} while {unique_verbs[1]}ing{punctuation}"
+        
     elif rand_num < 0.5:
-        sentence = f"{noun1} the {adjective1} truly has the most aura{punctuation}"
+        sentence = f"{unique_nouns[0]} the {unique_adjectives[0]} truly has the most aura{punctuation}"
+        
     elif rand_num < 0.7:
-        sentence = f"{noun1} is {adjective1} and {verb}s {noun2}{punctuation}"
+        sentence = f"{unique_nouns[0]} is {unique_adjectives[0]} and {unique_verbs[0]}s {unique_nouns[1]}{punctuation}"
+        
     elif rand_num < 0.8:
-        sentence = f"The {adjective1} {noun1} and the {adjective2} {noun2} both {verb}{punctuation}"
+        sentence = f"The {unique_adjectives[0]} {unique_nouns[0]} and the {unique_adjectives[1]} {unique_nouns[1]} both {unique_verbs[0]}{punctuation}"
+        
     elif rand_num < 0.9:
-        sentence = f"{noun1} can't stop {verb}ing {noun2}{punctuation}"
+        sentence = f"{unique_nouns[0]} can't stop {unique_verbs[0]}ing {unique_nouns[1]}{punctuation}"
+        
     else:
-        sentence = f"When the {adjective1} {noun1} {verb}s, the {adjective2} {noun2} {verb2}s{punctuation}"
+        sentence = f"When the {unique_adjectives[0]} {unique_nouns[0]} {unique_verbs[0]}s, the {unique_adjectives[1]} {unique_nouns[1]} {unique_verbs[1]}s{punctuation}"
 
     return capitalize_sentence(sentence)
 
